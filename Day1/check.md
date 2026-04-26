@@ -17,8 +17,6 @@
     `resource_group_name = data.terraform_remote_state.rg.outputs.resource_groups["mahar"].name`
 * **Benefit:** If the RG name changes in Folder A, Folder B updates automatically.
 
-
-
 ### 4. Why `for_each` with Maps? (Predictable Scaling)
 * **The Logic:** `count` is index-based (0, 1, 2). If you delete the first item, everything shifts and Terraform recreates the wrong resources.
 * **The Senior Way:** Use `for_each` with a `map(object)`. 

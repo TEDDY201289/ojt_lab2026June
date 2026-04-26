@@ -11,7 +11,7 @@
     * **1-Hour Session:** Explain enterprise-grade Terraform project structures and state management.
     * **Offline Assignment:** Write Terraform code using reusable modules to provision Azure Kubernetes Service (AKS). Use `terraform-docs` to auto-generate documentation.
 * **Day 2: Provisioning Azure Managed Databases**
-    * **1-Hour Session:** Review Terraform code and discuss database provisioning.
+    * **1-Hour Session:** Review Terraform code and discuss database provisioning.Explain about working enviornments both application level and infrastructure level. Use Terraform-Docs
     * **Offline Assignment:** Provision Azure Managed Database using Terraform. Configure remote state backend with state locking.
 * **Day 3: Azure Key Vault Integration**
     * **1-Hour Session:** Explain enterprise secrets management.
