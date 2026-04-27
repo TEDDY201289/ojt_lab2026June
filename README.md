@@ -6,20 +6,30 @@
 ## 📅 Month 1: Advanced Terraform, Key Vault & K8s Internals
 **Objective:** Master Infrastructure as Code (IaC) and secure Kubernetes deployments.
 
-### Week 1: Terraform Modules & AKS Provisioning
-* **Day 1: Terraform Structure & terraform-docs**
-    * **1-Hour Session:** Explain enterprise-grade Terraform project structures and state management.
-    * **Offline Assignment:** Write Terraform code using reusable modules to provision Azure Kubernetes Service (AKS). Use `terraform-docs` to auto-generate documentation.
-* **Day 2: Provisioning Azure Managed Databases**
-    * Explain the working environments at both the application and infrastructure levels, and incorporate Terraform-docs.
-    * **1-Hour Session:** Review Terraform code and discuss azure vm ubuntu server provisioning. 
-    * **Offline Assignment:** Provision Azure Managed Database using Terraform. Configure remote state backend with state locking.
-* **Day 3: Terraform Block and Import**
-    * **1-Hour Session:** 
-    * **Offline Assignment:** 
-* **Day 4: Azure Key Vault Integration**
-    * **1-Hour Session:** Explain enterprise secrets management.
-    * **Offline Assignment:** Provision Azure Key Vault via Terraform. Write a script to auto-generate and store database credentials securely in the Vault.
+### Week 1: # Terraform Mastery: Week 1 Progress Summary
+
+### Day 1: Enterprise Structure & Project Layout
+* **Concepts:** Introduction to enterprise-grade Terraform project structures. Understanding how to separate concerns by dividing infrastructure into logical directories (e.g., `00_resource_groups`, `01_networking`, `02_compute`).
+* **Key Takeaway:** Reusability is king. Using a modular approach ensures that code is not just a script, but a maintainable product.
+* **Documentation:** Implementing `terraform-docs` to automatically generate `README.md` files for each module to describe inputs and outputs.
+
+### Day 2: State Management & Remote State
+* **Concepts:** Mastering the Terraform State lifecycle. Moving from local state to **Remote Backend** (Azure Storage Account) with State Locking (Blob Lease/Table Storage).
+* **Deep Dive:** Using the `terraform_remote_state` data source to enable cross-folder communication.
+* **Example:** Fetching Resource Group details from `00_resource_groups` to use in the networking layer without hardcoding names.
+
+### Day 3: Advanced Data Structures & Looping
+* **Concepts:** Moving beyond simple strings to complex types like `map(object({...}))`.
+* **Techniques:** * **`for_each` Loop:** Automating the creation of multiple VNets and Subnets based on a single map variable.
+    * **Data Transformation:** Using `flatten` and `for` loops in `outputs.tf` to clean up Raw Data into "Clean Maps" (e.g., `k => v.id`).
+    * **Logic:** Converting an Object-heavy output into a simple String Map to prevent **Type Mismatch Errors** in downstream modules.
+
+### Day 4: Common Usage & Static Resource Provisioning
+* **Concepts:** Balancing Automation with Specificity. Understanding when to use `for_each` (for scaling) versus **Indexing** (for static/specific resources like an OpenVPN Server).
+* **Static Referencing:**
+    * Referencing specific map keys directly: `var.vms["OPENVPN-SERVER"].size`.
+    * Managing **Dynamic Blocks** for security rules to handle a list of ports within a single static NSG resource.
+* **Interface Standard:** Establishing a "Data Contract" where the Networking module provides IDs as Strings, and the VM module consumes them directly by key.
 
 ### Week 2: K8s Cluster Management & Lens IDE
 * **Day 4: Real-World K8s Management**
