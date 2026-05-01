@@ -82,3 +82,7 @@ spec:
 ```
 
 If developers create a brand new microservice (app3), you don't need to manually click through the ArgoCD UI to add it. You just drop the app3-uat.yaml file into the applications/uat/ folder. The root.yaml Parent App will instantly detect it and deploy the new service automatically!
+
+## Youtube Link
+
+https://www.youtube.com/watch?v=BJ8TMPGldcE

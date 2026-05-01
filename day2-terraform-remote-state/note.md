@@ -36,3 +36,7 @@
 * **The Logic:** `.tfvars` files contain environment-specific data, IP ranges, or secrets.
 * **The Senior Way:** **Never** push `.tfvars` to Git. 
 * **Action:** Add `*.tfvars` to your `.gitignore`. Use `variables.tf` to define the "Shape" (type) and keep the "Values" local or in protected CI/CD secrets.
+
+## Youtube Link
+
+https://www.youtube.com/watch?v=knh8sZAdtq4
