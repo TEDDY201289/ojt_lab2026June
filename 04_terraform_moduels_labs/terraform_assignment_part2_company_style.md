@@ -9,18 +9,50 @@ Convert existing Terraform folders into reusable child modules and call them fro
 
 ### 🧱 Target Structure
 ```
-modules/
-├── azure_rg/
-├── azure_vnet/
-└── azure_vm/
-
-live/
-└── single_aks_infra/
+.
+├── modules/
+│   ├── azure_rg/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   └── README.md
+│   │
+│   ├── azure_vnet/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   └── README.md
+│   │
+│   └── azure_vm/
+│       ├── main.tf
+│       ├── variables.tf
+│       ├── outputs.tf
+│       └── README.md
+│
+└── live/
     ├── 00_rg/
+    │   ├── providers.tf
+    │   ├── backend.tf
+    │   ├── main.tf
+    │   ├── variables.tf
+    │   ├── outputs.tf
+    │   └── terraform.tfvars
+    │
     ├── 01_networking/
-    ├── 03_vm/
-    ├── providers.tf
-    └── terraform.tfvars
+    │   ├── providers.tf
+    │   ├── backend.tf
+    │   ├── main.tf
+    │   ├── variables.tf
+    │   ├── outputs.tf
+    │   └── terraform.tfvars
+    │
+    └── 03_vm/
+        ├── providers.tf
+        ├── backend.tf
+        ├── main.tf
+        ├── variables.tf
+        ├── outputs.tf
+        └── terraform.tfvars
 ```
 
 > NOTE
