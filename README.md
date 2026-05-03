@@ -45,15 +45,17 @@
     * Using `${terraform.workspace}` to dynamically name resources based on the active environment.
     
 
-### Day 6: Security, Lifecycle Management & CI/CD Pipelines
-* **Concepts:** Production-grade safety, secret governance, and automated delivery.
-* **Topic 1: Secrets & Security Governance:** * **Key Vault Integration:** Using `azurerm_key_vault_secret` data sources to pull credentials at runtime.
-    * Enforcing `sensitive = true` on variables/outputs and using `validation` blocks to restrict "illegal" resource SKUs.
-    
-* **Topic 2: Lifecycle Management & State Ops:** * **Safety Hooks:** Using `prevent_destroy` to protect Production databases and `create_before_destroy` for zero-downtime updates.
-    * **Zero-Downtime Refactoring:** Implementing the **`moved` block** to rename resources or migrate them into modules without a "Destroy and Recreate" event.
-* **Topic 3: Automated CI/CD Pipelines:** * Orchestrating Terraform in **GitHub Actions** or **Azure DevOps**.
-    * Automating `terraform plan` on Pull Requests and `terraform apply` on Merges to the `main` branch.
+### Day 6: Post-Apply Operations & CI/CD Pipelines
+* **Concepts:** Moving to native cloud bootstrapping and secure, automated deployment workflows.
+* **Topic 1: Post-Apply Operations (The "Lead" Way):**
+    * **Cloud-Init Mastery:** Implementing `custom_data` in Azure to bootstrap VMs natively during the first boot.
+    * **Cloud-init Data Source:** Using `data "cloudinit_config"` to render multi-part MIME configurations, allowing for complex software installation and file placement without SSH access.
+* **Topic 2: Automated CI/CD Pipelines with GitHub Actions:**
+    * **Azure OIDC Integration:** Setting up **OpenID Connect (OIDC)** between GitHub and Azure to allow GitHub Actions to access Azure resources without storing long-lived Client Secrets (Passwordless Authentication).
+    * **Federated Credentials:** Configuring the Azure AD (Entra ID) App Registration to trust your GitHub repository and branch.
+* **Topic 3: The Production Workflow:**
+    * **Automated Logic:** Configuring GitHub Actions to trigger `terraform plan` on Pull Requests and `terraform apply` on merges to the `main` branch.
+    * **State Management in CI:** Handling remote backend locking and ensuring concurrent pipeline runs don't corrupt the state file.
     
 
 ### Day 7: Enterprise Scaling with Terraform Cloud
