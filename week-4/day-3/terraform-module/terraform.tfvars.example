@@ -1,0 +1,26 @@
+location            = "southeastasia"
+resource_group_name = "rg-module-demo"
+vnet_name           = "vnet-module-demo"
+acr_name            = "learndevopsacr01"
+vm_name             = "vm-module-demo"
+vm_admin_username   = "azureuser"
+vm_ssh_public_key   = "ssh-rsa REPLACE_WITH_YOUR_PUBLIC_KEY"
+
+vnet_address_space = ["10.10.0.0/16"]
+
+subnets = {
+  app = {
+    name             = "snet-app"
+    address_prefixes = ["10.10.1.0/24"]
+  }
+
+  db = {
+    name             = "snet-db"
+    address_prefixes = ["10.10.2.0/24"]
+  }
+}
+
+tags = {
+  project = "terraform-module-demo"
+  owner   = "learn-devops-now"
+}
