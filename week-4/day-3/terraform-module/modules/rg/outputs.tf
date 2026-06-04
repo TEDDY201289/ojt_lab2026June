@@ -3,12 +3,12 @@ output "name" {
   value       = azurerm_resource_group.this.name
 }
 
-output "id" {
-  description = "Resource group ID."
-  value       = azurerm_resource_group.this.id
-}
-
 output "location" {
   description = "Resource group location."
   value       = azurerm_resource_group.this.location
+}
+
+output "id" {
+  description = "ID of the resource group"
+  value       = azurerm_resource_group.this.id
 }

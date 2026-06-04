@@ -2,6 +2,5 @@ module "rg" {
   source = "./modules/rg"
 
   name     = var.resource_group_name
-  location = var.location
-  tags     = var.tags
+  location = var.resource_group_location
 }
